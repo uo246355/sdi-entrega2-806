@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block titulo %} Mis publicaciones {% endblock %} 
+
+{% block contenido_principal %}
+<h2>Mis publicaciones</h2>
+
+<!-- Agregar Canción -->
+<div class="row text-right">
+	<a href="/productos/agregar" class="btn btn-info" role="button">Agregar producto</a>
+</div>
+
+<div class="table-responsive">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Genero</th>
+				<th class="col-md-1"></th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for producto in productos %}
+			<tr>
+				<td>{{ producto.nombre }}</td>
+				<td>{{ producto.genero }}</td>
+				<td><a href="/producto/modificar/{{ producto._id.toString() }}">Modificar</a> <br>
+					<a href="/producto/eliminar/{{ producto._id.toString() }}">Eliminar</a> <br>
+			    </td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<!-- Agregar Canción -->
+<div class="row text-right">
+	<a href="/productos/agregar" class="btn btn-info" role="button">Agregar producto</a>
+</div>
+
+{% endblock %}
